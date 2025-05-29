@@ -1,37 +1,37 @@
 # Ex No: 07 - Design and Simulation of a 4-Bit Adder Using Verilog and Cadence nclaunch
 
 ## Aim
-The aim is to design and simulate a **4-bit Adder** using **Verilog HDL** and verify its functionality using **Cadence nclaunch** for simulation.
+The aim is to design and simulate a *4-bit Adder* using *Verilog HDL* and verify its functionality using *Cadence nclaunch* for simulation.
 
 ---
 
 ## Tools Required
 ### Cadence EDA Suite
-- **nclaunch** (for functional and timing simulation)
+- *nclaunch* (for functional and timing simulation)
 
 ### Hardware Requirements
-- Minimum **4GB RAM** and a **multi-core processor**
+- Minimum *4GB RAM* and a *multi-core processor*
 
 ---
 
 ## Procedure
 
 ### 1. Writing Verilog Code:
-- Create a new Verilog module for the **1-bit Full Adder**.
-- Implement a **ripple carry adder** using **four 1-bit full adders** to form a **4-bit Adder**.
-- Define input ports (**A[3:0], B[3:0], Cin**) and output ports (**Sum[3:0], Cout**).
+- Create a new Verilog module for the *1-bit Full Adder*.
+- Implement a *ripple carry adder* using *four 1-bit full adders* to form a *4-bit Adder*.
+- Define input ports (*A[3:0], B[3:0], Cin) and output ports (Sum[3:0], Cout*).
 
 ### 2. Simulation Using Cadence nclaunch:
-- Open **nclaunch** and load the Verilog file.
-- Compile the design and check for **syntax errors**.
-- Write a **testbench** to apply different input combinations.
-- Run the **simulation** and observe the **waveforms**.
+- Open *nclaunch* and load the Verilog file.
+- Compile the design and check for *syntax errors*.
+- Write a *testbench* to apply different input combinations.
+- Run the *simulation* and observe the *waveforms*.
 - Verify that the output sum and carry are correct for all cases.
 
 ---
 
 ## Verilog Code for 1-Bit Full Adder
-```verilog
+verilog
 module full_adder (
     input A, B, Cin,
     output Sum, Cout
@@ -39,14 +39,14 @@ module full_adder (
     assign Sum = A ^ B ^ Cin;
     assign Cout = (A & B) | (B & Cin) | (A & Cin);
 endmodule
-```
+
 
 ## Truth Table for 1-Bit Full Adder
 
 ![image](https://github.com/user-attachments/assets/0ea58111-49fb-49a4-ad6a-ee36cbf4e479)
 
 ## Verilog Code for 4-Bit Ripple carry Adder
-```verilog
+verilog
 module adder_4bit (
     input [3:0] A, B,
     input Cin,
@@ -60,9 +60,9 @@ module adder_4bit (
     full_adder FA2 (A[2], B[2], C2, Sum[2], C3);
     full_adder FA3 (A[3], B[3], C3, Sum[3], Cout);
 endmodule
-```
+
 ## Verilog Testbench Code for 1-Bit Full Adder
-```verilog
+verilog
 module tb_adder_4bit;
     reg [3:0] A, B;
     reg Cin;
@@ -88,7 +88,7 @@ module tb_adder_4bit;
     end
 endmodule
 
-```
+
 
 ## Truth Table for 4-Bit Full Adder
 
@@ -102,7 +102,9 @@ endmodule
 ![Screenshot 2025-05-21 155538](https://github.com/user-attachments/assets/187ebe28-40e2-44b2-9b78-d08bdc67d62c)
 
 ### Simulation Waveforms
-![Screenshot 2025-05-21 155512](https://github.com/user-attachments/assets/4d1457be-ef30-4b8b-a58d-aa8ac39c078c)
+
+![4-bit adder verilog](https://github.com/user-attachments/assets/a3e94fbe-9049-4701-b57f-152f41f69882)
+
 
 
 
@@ -110,5 +112,3 @@ endmodule
 Successfully designed the 1-bit Full Adder and 4-bit Adder using Verilog HDL.
 Simulated the design using Cadence nclaunch and verified the output.
 Observed correct addition functionality for all test cases.
-
-
